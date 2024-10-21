@@ -6,4 +6,6 @@ mySignalGeneration.py is used to build different signals. Ranging from simple si
 
 myLockinAmplifier.py then has two classes. The lockinAmplifier class which holds the lock in amplifier function. There is also the examples class which simulates some concepts and the use of a lock in amplifier in multiple scenarios.
 
+Cesare, summer 2024
+
 
