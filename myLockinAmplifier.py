@@ -4,11 +4,13 @@ from mySignalGeneration import signalGeneration
 
 class lockinAmplifier:
 
+    @staticmethod
     def lockIn(reference, input):
         multiplied = input * reference
         output = np.mean(multiplied)
         return output
 
+    @staticmethod
     def timeAverage(data):
         return np.mean(data)
 
@@ -23,6 +25,7 @@ class examples:
     this shows that offset on the incoming signal does not affect the time average
     once multiplied by a reference signal centered on zero.
     '''
+    @staticmethod
     def offsetSignalAveragingDemo(offset1, offset2, sampleRate, frequency, amplitude):
         x, yOffset = signalGeneration.squareWave(amplitude, frequency, sampleRate, 2)
         x, yCentred = signalGeneration.squareWave(1, frequency, sampleRate, 2)
@@ -54,6 +57,7 @@ class examples:
     '''
     shows a sine wave can be found within noise by a lock in amplifier 
     '''
+    @staticmethod
     def sineWave(sampleRate, frequency, sineAmplitude,noiseStandardDeviation):
 
         xAxis,y = signalGeneration.sineWave(amplitude=sineAmplitude, freq=frequency, sample_rate=sampleRate, duration=1)
@@ -83,6 +87,7 @@ class examples:
     '''
     shows a square wave can be found within noise by a lock in amplifier 
     '''
+    @staticmethod
     def squareWave(sampleRate,frequency,squareAmplitude,noiseStandardDeviation):
 
         xAxis, y = signalGeneration.squareWave(amplitude=squareAmplitude, freq=frequency, sample_rate=sampleRate, duration=1)
@@ -113,6 +118,7 @@ class examples:
     expands and shows that if the square wave signal in modulated we 
     can recover the modulation signal
     '''
+    @staticmethod
     def modulatedSquareWave(sampleRate, frequency, squareAmplitude, noiseStandardDeviation):
 
         readOut, xAxis, yAxis, yModulated, noise = [],[],[],[],[]
@@ -176,6 +182,7 @@ class examples:
     - more 'real world' as signal is positive only
     - ability to control modulation signal
     '''
+    @staticmethod
     def modulatedPosativeSquareWave(sampleRate, frequency, amplitude, noiseStandardDeviation, modulationFrequency, modulationSampleRate):
 
         readOut, xAxis, yAxis, yModulated, noise = [], [], [], [], []

@@ -5,44 +5,52 @@ import math
 
 class signalGeneration:
 
+    @staticmethod
     def sineWave(amplitude, freq, sample_rate, duration):
         x = np.linspace(0, duration, int(sample_rate * duration))
         frequencies = x * freq
         y = np.sin((2 * np.pi) * frequencies) * amplitude
         return x, y
 
+    @staticmethod
     def line(m,k,numberOfSamples):
         x = np.linspace(0, numberOfSamples, int(numberOfSamples))
         y = [m*x + k for x in x]
         return x, y
 
+    @staticmethod
     def squareWave(amplitude, freq, sample_rate, duration):
         x = np.linspace(0, duration, int(sample_rate * duration))
         frequencies = x * freq
         y = signal.square((2 * np.pi) * frequencies) * amplitude
         return x, y
 
+    @staticmethod
     def noise(offset, standardDeviation, sample_rate, duration):
         total_samples = sample_rate * duration
         noise = np.random.normal(offset, standardDeviation, total_samples)
         return noise
 
+    @staticmethod
     def posativeNoise(offset, standardDeviation, sample_rate, duration):
         total_samples = sample_rate * duration
         noise = np.random.normal(offset, standardDeviation, total_samples)
         signalGeneration.makePosative(noise)
         return noise
 
+    @staticmethod
     def makePosative(data):
         for i in range(len(data)):
             if data[i] < 0:
                 data[i] = -data[i]
         return data
 
+    @staticmethod
     def addOffset(y,offset):
         y = y + offset
         return y
 
+    @staticmethod
     def variableSquareWave(amplitude, highDuration, lowDuration, sampleRate, duration):
 
         numberOfSamples = int(sampleRate * duration)
